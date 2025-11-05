@@ -109,7 +109,7 @@ h1 {
     grid-template-columns: repeat(2, 1fr);
 }
 
-/* 🖥️ PC — 2 columnas + botones grandes */
+/* 🖥️ PC (2 columnas, botones grandes, más espacio) */
 .pc-ui .icon-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 28px;
@@ -135,9 +135,11 @@ h1 {
     font-size: 24px;
     border-radius: 30px;
 }
+
 .tv-ui .icon-grid {
     grid-template-columns: repeat(2, 1fr);
 }
+
 .tv-ui {
     cursor: none;
 }
@@ -192,48 +194,20 @@ h1 {
 </a>
 
 </div>
-
-<!-- 👁️ CONTADOR DE VISITAS FUNCIONAL -->
-<div id="visit-counter" style="
-    text-align:center;
-    margin-bottom:12px;
-    color:#ffeb3b;
-    font-size:20px;
-    font-weight:bold;
-    text-shadow:0 0 12px rgba(255, 255, 0, .7);
-">
-Cargando visitas...
 </div>
 
-</div>
-
-<!-- ✅ SCRIPT DETECTAR DISPOSITIVO + CONTADOR -->
 <script>
-// Detección dispositivo
 function detectDevice() {
     const ua = navigator.userAgent.toLowerCase();
-    if (/smart-tv|smarttv|hbbtv|viera|nettv|appletv|tizen|webos|firetv|googletv|android tv|tv|bravia|playstation|xbox/.test(ua))
-        document.body.classList.add("tv-ui");
-    else if (/android|iphone|ipad|ipod|mobile/.test(ua))
-        document.body.classList.add("mobile-ui");
+    const isMobile = /android|iphone|ipad|ipod|mobile/.test(ua);
+    const isTV = /smart-tv|smarttv|hbbtv|viera|nettv|appletv|tizen|webos|firetv|googletv|android tv|tv|bravia/.test(ua);
+    const isConsole = /playstation|xbox/.test(ua);
+
+    if (isTV || isConsole) document.body.classList.add("tv-ui");
+    else if (isMobile) document.body.classList.add("mobile-ui");
     else document.body.classList.add("pc-ui");
 }
 detectDevice();
-
-// Contador CountAPI funcional
-async function updateVisits() {
-    try {
-        // Namespace: supervectar-tv | Key: visitas
-        const res = await fetch("https://api.countapi.xyz/hit/supervectar-tv/visitas");
-        const data = await res.json();
-        document.getElementById("visit-counter").innerHTML =
-            "👁️ Visitas: " + data.value.toLocaleString();
-    } catch(e) {
-        document.getElementById("visit-counter").innerHTML = "👁️ Visitas: error";
-        console.error("Error CountAPI:", e);
-    }
-}
-updateVisits();
 </script>
 
 </body>
