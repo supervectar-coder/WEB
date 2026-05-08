@@ -2,19 +2,19 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>SUPERVECTAR TV WEB</title>
+<title>SUPERVECTAR WEB</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Launcher SUPERVECTAR TV - Deportes, TV, Películas y Series">
 
 <style>
 :root {
-    --bg: #0d1117;
+    --bg: #ffffff; /* ⚪ FONDO BLANCO */
     --primary: #0a3d62;
-    --text: #e6e6e6;
-    --btn: #1b1f24;
-    --btn-hover: #2c3440;
-    --btn-text: #ffeb3b;
-    --glow: rgba(255, 235, 59, 0.6);
+    --text: #111111; /* 🔤 TEXTO OSCURO */
+    --btn: #f1f1f1; /* BOTONES CLAROS */
+    --btn-hover: #e0e0e0;
+    --btn-text: #ff3b3b; /* 🔴 ROJO */
+    --glow: rgba(255, 0, 0, 0.5);
 }
 
 * { box-sizing: border-box; }
@@ -38,12 +38,28 @@ html, body {
     width: 95vw;
 }
 
+/* LOGO */
+.logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    margin: 10px auto 5px;
+    display: block;
+    box-shadow: 0 0 15px var(--glow);
+    animation: logoGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+    from { box-shadow: 0 0 10px var(--glow); }
+    to { box-shadow: 0 0 25px var(--glow); }
+}
+
 h1 {
-    margin-top: 15px;
+    margin-top: 10px;
     font-size: 28px;
     font-weight: bold;
     color: var(--btn-text);
-    text-shadow: 0 0 12px rgba(255, 255, 0, .7);
+    text-shadow: 0 0 12px var(--glow);
     animation: neonTitle 2s ease-in-out infinite alternate;
 }
 
@@ -73,13 +89,13 @@ h1 {
     font-weight: bold;
     text-decoration: none;
     transition: .25s;
-    box-shadow: 0 0 15px #000;
-    border: 1px solid #1f2937;
+    box-shadow: 0 0 10px #ccc;
+    border: 1px solid #ddd;
 }
 
 .app-btn:hover, .app-btn:focus {
     background: var(--btn-hover);
-    box-shadow: 0 0 12px var(--glow), 0 0 30px var(--glow);
+    box-shadow: 0 0 12px var(--glow), 0 0 25px var(--glow);
     outline: none;
     transform: scale(1.05);
 }
@@ -96,7 +112,7 @@ h1 {
 }
 
 :focus-visible {
-    outline: 3px solid yellow;
+    outline: 3px solid red;
     border-radius: 30px;
 }
 
@@ -105,43 +121,17 @@ h1 {
     padding: 20px;
     font-size: 16px;
 }
-.mobile-ui .icon-grid {
-    grid-template-columns: repeat(2, 1fr);
-}
 
-/* 🖥️ PC (2 columnas, botones grandes, más espacio) */
-.pc-ui .icon-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-    padding: 30px;
-}
-
+/* 🖥️ PC */
 .pc-ui .app-btn {
     padding: 40px;
     font-size: 22px;
-    border-radius: 30px;
-    box-shadow: 0 0 20px #000;
-    transition: transform .25s, box-shadow .25s;
-}
-
-.pc-ui .app-btn:hover, .pc-ui .app-btn:focus {
-    transform: scale(1.08);
-    box-shadow: 0 0 18px var(--glow), 0 0 35px var(--glow);
 }
 
 /* 📺 TV */
 .tv-ui .app-btn {
     padding: 35px;
     font-size: 24px;
-    border-radius: 30px;
-}
-
-.tv-ui .icon-grid {
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.tv-ui {
-    cursor: none;
 }
 </style>
 </head>
@@ -149,64 +139,56 @@ h1 {
 <body>
 <div class="app-container">
 
-<h1>SUPERVECTAR TV WEB</h1>
+<img src="https://i.ibb.co/7dGjZb80/6.jpg" alt="Logo SUPERVECTAR" class="logo">
 
-<!-- Contador de visitas debajo del título -->
-<center>
-  <a href="https://websmultimedia.com/contador-de-visitas-gratis" title="Contador De Visitas Gratis">
-    <img style="border: 0px solid; display: inline;" alt="contador de visitas" src="https://websmultimedia.com/contador-de-visitas.php?id=23239">
+<h1>SUPERVECTAR WEB</h1>
+
+<div style="text-align:center;">
+  <a href="https://websmultimedia.com/contador-de-visitas-gratis">
+    <img alt="contador" src="https://websmultimedia.com/contador-de-visitas.php?id=23239">
   </a>
-  <br>
-</center>
+</div>
 
 <div class="icon-grid">
 
-<a class="app-btn" href="https://supervectar-coder.github.io/SUPERACE2/" target="_blank">
-<img class="icon" src="https://i.ibb.co/LzGF321b/vec-ace.jpg" alt="ACESTREAM DEPORTES2"> ACESTREAM DEPORTES NEWERA
+<a class="app-btn" href="https://supervectar-coder.github.io/SUPERACE2/" target="_blank" rel="noopener noreferrer">
+<img class="icon" src="https://i.ibb.co/7dGjZb80/6.jpg"> ACESTREAM DEPORTES NEWERA
 </a>
 
-<a class="app-btn" href="https://supervectar-coder.github.io/SUPERACE3/" target="_blank">
-<img class="icon" src="https://i.ibb.co/LzGF321b/vec-ace.jpg" alt="ACESTREAM DEPORTES3"> ACESTREAM DEPORTES ELCANO
+<a class="app-btn" href="https://supervectar-coder.github.io/SUPERACE3/" target="_blank" rel="noopener noreferrer">
+<img class="icon" src="https://i.ibb.co/LzGF321b/vec-ace.jpg"> ACESTREAM DEPORTES ELCANO
 </a>
 
-<a class="app-btn" href="https://supervectartv.github.io/deportesvlc/" target="_blank">
-<img class="icon" src="https://i.ibb.co/CKVW2GnC/vlc.png" alt="VLC DEPORTES"> VLC DEPORTES
+<a class="app-btn" href="https://www.socialcreator.com/20131971plmr/?s=74316" target="_blank" rel="noopener noreferrer">
+<img class="icon" src="https://i.ibb.co/HpTQSGB3/cineseries.png"> PELIS
 </a>
 
-<a class="app-btn" href="https://supervectartv.github.io/tvvlc/" target="_blank">
-<img class="icon" src="https://i.ibb.co/CKVW2GnC/vlc.png" alt="VLC TV"> VLC TV
+<a class="app-btn" href="https://www.socialcreator.com/20131971sr2/?s=325193" target="_blank" rel="noopener noreferrer">
+<img class="icon" src="https://i.ibb.co/HpTQSGB3/cineseries.png"> SERIES
 </a>
 
-<a class="app-btn" href="https://www.socialcreator.com/20131971plmr/?s=74316" target="_blank">
-<img class="icon" src="https://i.ibb.co/HpTQSGB3/cineseries.png" alt="PELIS "> PELIS
+<a class="app-btn" href="https://www.socialcreator.com/20131971dc" target="_blank" rel="noopener noreferrer">
+<img class="icon" src="https://i.ibb.co/HpTQSGB3/cineseries.png"> DOCUMENTALES
 </a>
 
-<a class="app-btn" href="https://www.socialcreator.com/20131971sr2/?s=325193" target="_blank">
-<img class="icon" src="https://i.ibb.co/HpTQSGB3/cineseries.png" alt="SERIES"> SERIES
+<a class="app-btn" href="https://www.socialcreator.com/20131971plmr/?s=76002" target="_blank" rel="noopener noreferrer">
+<img class="icon" src="https://i.ibb.co/HpTQSGB3/cineseries.png"> ESTRENOS Y LAT
 </a>
 
-<a class="app-btn" href="https://www.socialcreator.com/20131971dc" target="_blank">
-<img class="icon" src="https://i.ibb.co/HpTQSGB3/cineseries.png" alt="DOCUMENTALES"> DOCUMENTALES
+<a class="app-btn" href="https://supervectar-coder.github.io/TVTDTSPAIN/" target="_blank" rel="noopener noreferrer">
+<img class="icon" src="https://i.ibb.co/Fqd6hNjF/tv.png"> TV ESPAÑA
 </a>
 
-<a class="app-btn" href="https://www.socialcreator.com/20131971plmr/?s=76002" target="_blank">
-<img class="icon" src="https://i.ibb.co/HpTQSGB3/cineseries.png" alt="ESTRENOS Y LAT"> ESTRENOS Y LAT
+<a class="app-btn" href="https://supervectartv.github.io/tvmundial/" target="_blank" rel="noopener noreferrer">
+<img class="icon" src="https://i.ibb.co/Fqd6hNjF/tv.png"> TV MUNDIAL
 </a>
 
-<a class="app-btn" href="https://supervectar-coder.github.io/TVTDTSPAIN/" target="_blank">
-<img class="icon" src="https://i.ibb.co/Fqd6hNjF/tv.png" alt="TV ESPAÑA"> TV ESPAÑA
+<a class="app-btn" href="https://supervectartv.github.io/radiospain/" target="_blank" rel="noopener noreferrer">
+<img class="icon" src="https://i.ibb.co/G6hHWQZ/radio.png"> RADIO ESPAÑA
 </a>
 
-<a class="app-btn" href="https://supervectartv.github.io/tvmundial/" target="_blank">
-<img class="icon" src="https://i.ibb.co/Fqd6hNjF/tv.png" alt="TV MUNDIAL"> TV MUNDIAL
-</a>
-
-<a class="app-btn" href="https://supervectartv.github.io/radiospain/" target="_blank">
-<img class="icon" src="https://i.ibb.co/G6hHWQZ/radio.png" alt="RADIO ESPAÑA"> RADIO ESPAÑA
-</a>
-
-<a class="app-btn" href="https://supervectartv.github.io/radiomundial/" target="_blank">
-<img class="icon" src="https://i.ibb.co/G6hHWQZ/radio.png" alt="RADIO MUNDIAL"> RADIO MUNDIAL
+<a class="app-btn" href="https://supervectartv.github.io/radiomundial/" target="_blank" rel="noopener noreferrer">
+<img class="icon" src="https://i.ibb.co/G6hHWQZ/radio.png"> RADIO MUNDIAL
 </a>
 
 </div>
@@ -215,13 +197,14 @@ h1 {
 <script>
 function detectDevice() {
     const ua = navigator.userAgent.toLowerCase();
-    const isMobile = /android|iphone|ipad|ipod|mobile/.test(ua);
-    const isTV = /smart-tv|smarttv|hbbtv|viera|nettv|appletv|tizen|webos|firetv|googletv|android tv|tv|bravia/.test(ua);
-    const isConsole = /playstation|xbox/.test(ua);
 
-    if (isTV || isConsole) document.body.classList.add("tv-ui");
-    else if (isMobile) document.body.classList.add("mobile-ui");
-    else document.body.classList.add("pc-ui");
+    if (/tv|smart|tizen|webos|android tv/.test(ua)) {
+        document.body.classList.add("tv-ui");
+    } else if (/mobile|android|iphone/.test(ua)) {
+        document.body.classList.add("mobile-ui");
+    } else {
+        document.body.classList.add("pc-ui");
+    }
 }
 detectDevice();
 </script>
