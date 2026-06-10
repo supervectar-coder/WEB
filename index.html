@@ -1,220 +1,145 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 <meta charset="UTF-8">
 <title>SUPERVECTAR WEB</title>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Launcher SUPERVECTAR TV - Deportes, TV, Películas y Series">
-<meta name="theme-color" content="#ff3b3b">
-
-<link rel="icon" href="https://i.ibb.co/7dGjZb80/6.jpg">
 
 <style>
-
-:root{
-    --bg:#ffffff;
-    --primary:#0a3d62;
-    --text:#111111;
-    --btn:#f1f1f1;
-    --btn-hover:#e0e0e0;
-    --btn-text:#ff3b3b;
-    --glow:rgba(255,0,0,.35);
+:root {
+    --bg: #ffffff;
+    --primary: #0a3d62;
+    --text: #111111;
+    --btn: #f1f1f1;
+    --btn-hover: #e0e0e0;
+    --btn-text: #ff3b3b;
+    --glow: rgba(255, 0, 0, 0.5);
 }
 
-*{
-    box-sizing:border-box;
+* { box-sizing: border-box; }
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, sans-serif;
 }
 
-html,body{
-    height:100%;
-    margin:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:var(--bg);
-    color:var(--text);
-    font-family:Arial,sans-serif;
-}
-
-.app-container{
-    display:flex;
-    flex-direction:column;
-    text-align:center;
-    height:95vh;
-    width:95vw;
+.app-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 95vh;
+    width: 95vw;
 }
 
 /* LOGO */
-
-.logo{
-    width:80px;
-    height:80px;
-    border-radius:20px;
-    margin:10px auto 5px;
-    display:block;
-    box-shadow:0 0 15px var(--glow);
-    animation:logoGlow 2s ease-in-out infinite alternate;
+.logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    margin: 10px auto 5px;
+    display: block;
+    box-shadow: 0 0 15px var(--glow);
+    animation: logoGlow 2s ease-in-out infinite alternate;
 }
 
-@keyframes logoGlow{
-    from{
-        box-shadow:0 0 10px var(--glow);
-    }
-    to{
-        box-shadow:0 0 25px var(--glow);
-    }
+@keyframes logoGlow {
+    from { box-shadow: 0 0 10px var(--glow); }
+    to { box-shadow: 0 0 25px var(--glow); }
 }
 
-h1{
-    margin-top:10px;
-    font-size:28px;
-    font-weight:bold;
-    color:var(--btn-text);
-    text-shadow:0 0 12px var(--glow);
-    animation:neonTitle 2s ease-in-out infinite alternate;
+h1 {
+    margin-top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--btn-text);
+    text-shadow: 0 0 12px var(--glow);
+    animation: neonTitle 2s ease-in-out infinite alternate;
 }
 
-@keyframes neonTitle{
-    from{
-        text-shadow:0 0 12px var(--glow);
-    }
-    to{
-        text-shadow:0 0 25px var(--glow),
-        0 0 40px var(--glow);
-    }
+@keyframes neonTitle {
+    from { text-shadow: 0 0 12px var(--glow); }
+    to { text-shadow: 0 0 25px var(--glow), 0 0 40px var(--glow); }
 }
 
-#notice{
-    margin-top:10px;
-    font-weight:bold;
-    color:red;
-    animation:pulse 2s infinite;
+.icon-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    padding: 20px;
 }
 
-@keyframes pulse{
-    0%{opacity:.7;}
-    50%{opacity:1;}
-    100%{opacity:.7;}
+.app-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    border-radius: 25px;
+    font-size: 18px;
+    color: var(--btn-text);
+    background: var(--btn);
+    font-weight: bold;
+    text-decoration: none;
+    transition: .25s;
+    box-shadow: 0 0 10px #ccc;
+    border: 1px solid #ddd;
 }
 
-.icon-grid{
-    flex:1;
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
-    padding:20px;
-    overflow:auto;
+.app-btn:hover, .app-btn:focus {
+    background: var(--btn-hover);
+    box-shadow: 0 0 12px var(--glow), 0 0 25px var(--glow);
+    outline: none;
+    transform: scale(1.05);
 }
 
-.app-btn{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    padding:25px;
-    border-radius:25px;
-    font-size:18px;
-    color:var(--btn-text);
-    background:var(--btn);
-    font-weight:bold;
-    text-decoration:none;
-    border:1px solid #ddd;
-
-    transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    background .25s ease;
-
-    box-shadow:0 0 10px #ccc;
-
-    backdrop-filter:blur(10px);
+.app-btn:active {
+    transform: scale(.92);
 }
 
-.app-btn:hover,
-.app-btn:focus{
-    background:var(--btn-hover);
-    box-shadow:
-    0 0 12px var(--glow),
-    0 0 25px var(--glow);
-
-    transform:scale(1.05);
-    outline:none;
+.icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+    border-radius: 12px;
 }
 
-.app-btn:active{
-    transform:scale(.92);
+:focus-visible {
+    outline: 3px solid red;
+    border-radius: 30px;
 }
 
-.app-btn:focus{
-    transform:scale(1.08);
-    box-shadow:0 0 20px red;
+/* 📱 Móvil */
+.mobile-ui .app-btn {
+    padding: 20px;
+    font-size: 16px;
 }
 
-.icon{
-    width:48px;
-    height:48px;
-    margin-bottom:12px;
-    border-radius:12px;
+/* 🖥️ PC */
+.pc-ui .app-btn {
+    padding: 40px;
+    font-size: 22px;
 }
 
-:focus-visible{
-    outline:3px solid red;
-    border-radius:30px;
+/* 📺 TV */
+.tv-ui .app-btn {
+    padding: 35px;
+    font-size: 24px;
 }
-
-/* MOVIL */
-
-.mobile-ui .app-btn{
-    padding:20px;
-    font-size:16px;
-}
-
-/* PC */
-
-.pc-ui .app-btn{
-    padding:40px;
-    font-size:22px;
-}
-
-/* TV */
-
-.tv-ui .app-btn{
-    padding:35px;
-    font-size:24px;
-}
-
-/* RESPONSIVE */
-
-@media (max-width:600px){
-
-    .icon-grid{
-        gap:12px;
-        padding:10px;
-    }
-
-    .app-btn{
-        border-radius:18px;
-    }
-
-    h1{
-        font-size:22px;
-    }
-}
-
 </style>
 </head>
 
 <body>
-
 <div class="app-container">
 
-<img
-src="https://i.ibb.co/7dGjZb80/6.jpg"
-alt="Logo SUPERVECTAR"
-class="logo"
-loading="lazy">
+<img src="https://i.ibb.co/7dGjZb80/6.jpg" alt="Logo SUPERVECTAR" class="logo">
 
 <h1>SUPERVECTAR WEB</h1>
 
@@ -224,169 +149,98 @@ loading="lazy">
 
 <div class="icon-grid">
 
-<a class="app-btn" tabindex="0"
-href="https://supervectar-coder.github.io/SUPERACE/">
-<img class="icon" loading="lazy"
-src="https://i.ibb.co/pjM4jq7C/acestream.png">
-DEPORTES ACESTREAM
+<a class="app-btn" href="https://supervectar-coder.github.io/SUPERACE/">
+<img class="icon" src="https://i.ibb.co/pjM4jq7C/acestream.png"> DEPORTES ACESTREAM
 </a>
 
-<a class="app-btn" tabindex="0"
-href="https://supervectar-coder.github.io/SUPERDWEBS/">
-<img class="icon" loading="lazy"
-src="https://i.ibb.co/hJvyccbz/descarga11.png">
-DEPORTES WEBS
+<a class="app-btn" href="https://supervectar-coder.github.io/SUPERDWEBS/">
+<img class="icon" src="https://i.ibb.co/hJvyccbz/descarga11.png"> DEPORTES WEBS
 </a>
 
-<a class="app-btn" tabindex="0"
-href="https://supervectar-coder.github.io/PELISPETICIONES/">
-<img class="icon" loading="lazy"
-src="https://i.ibb.co/mFVJhbqV/cinee.jpg">
-SV PELIS ESTRENOS
+<a class="app-btn" href="https://supervectar-coder.github.io/PELISPETICIONES/">
+<img class="icon" src="https://i.ibb.co/mFVJhbqV/cinee.jpg"> SV PELIS ESTRENOS
 </a>
 
-<a class="app-btn" tabindex="0"
-href="https://www.socialcreator.com/20131971plmr/?s=74316">
-<img class="icon" loading="lazy"
-src="https://i.ibb.co/mFVJhbqV/cinee.jpg">
-PELIS
+<a class="app-btn" href="https://www.socialcreator.com/20131971plmr/?s=74316">
+<img class="icon" src="https://i.ibb.co/mFVJhbqV/cinee.jpg"> PELIS
 </a>
 
-<a class="app-btn" tabindex="0"
-href="https://supervectar-coder.github.io/SERIESPETICIONES/">
-<img class="icon" loading="lazy"
-src="https://i.ibb.co/mFVJhbqV/cinee.jpg">
-SV SERIES (PETICIONES)
+<a class="app-btn" href="https://supervectar-coder.github.io/SERIESPETICIONES/">
+<img class="icon" src="https://i.ibb.co/mFVJhbqV/cinee.jpg"> SV SERIES (PETICIONES)
 </a>
 
-<a class="app-btn" tabindex="0"
-href="https://www.socialcreator.com/20131971sr2/?s=325193">
-<img class="icon" loading="lazy"
-src="https://i.ibb.co/mFVJhbqV/cinee.jpg">
-SERIES
+<a class="app-btn" href="https://www.socialcreator.com/20131971sr2/?s=325193">
+<img class="icon" src="https://i.ibb.co/mFVJhbqV/cinee.jpg"> SERIES
 </a>
 
-<a class="app-btn" tabindex="0"
-href="https://supervectar-coder.github.io/TVTDTSPAIN/">
-<img class="icon" loading="lazy"
-src="https://i.ibb.co/6cnFkq0r/TDTESPA-A.jpg">
-TV TDT ESPAÑA
+<a class="app-btn" href="https://supervectar-coder.github.io/TVTDTSPAIN/">
+<img class="icon" src="https://i.ibb.co/6cnFkq0r/TDTESPA-A.jpg"> TV TDT ESPAÑA
 </a>
 
-<a class="app-btn" tabindex="0"
-href="https://supervectar-coder.github.io/TVPUBLICAESPA-A1/">
-<img class="icon" loading="lazy"
-src="https://i.ibb.co/6cnFkq0r/TDTESPA-A.jpg">
-TV AUTONOMICAS
+<a class="app-btn" href="https://supervectar-coder.github.io/TVPUBLICAESPA-A1/">
+<img class="icon" src="https://i.ibb.co/6cnFkq0r/TDTESPA-A.jpg"> TV AUTONOMICAS
 </a>
 
-<a class="app-btn" tabindex="0"
-href="https://supervectar-coder.github.io/SUPERRADIOSPAIN/">
-<img class="icon" loading="lazy"
-src="https://i.ibb.co/3YGtH0jQ/RADIOESPA-A.jpg">
-RADIOS ESPAÑA
+<a class="app-btn" href="https://supervectar-coder.github.io/SUPERRADIOSPAIN/">
+<img class="icon" src="https://i.ibb.co/3YGtH0jQ/RADIOESPA-A.jpg"> RADIOS ESPAÑA
 </a>
 
-<a class="app-btn" tabindex="0"
-href="https://supervectar-coder.github.io/SUPERRADIOAUTONOMICAS/">
-<img class="icon" loading="lazy"
-src="https://i.ibb.co/3YGtH0jQ/RADIOESPA-A.jpg">
-RADIOS AUTONOMICAS
+<a class="app-btn" href="https://supervectar-coder.github.io/SUPERRADIOAUTONOMICAS/">
+<img class="icon" src="https://i.ibb.co/3YGtH0jQ/RADIOESPA-A.jpg"> RADIOS AUTONOMICAS
 </a>
 
-<a class="app-btn" tabindex="0"
-href="https://supervectar-coder.github.io/SUPERTVMUNDIAL/">
-<img class="icon" loading="lazy"
-src="https://i.ibb.co/nMNHFkyL/mundial.png">
-TV MUNDIAL
+<a class="app-btn" href="https://supervectar-coder.github.io/SUPERTVMUNDIAL/">
+<img class="icon" src="https://i.ibb.co/nMNHFkyL/mundial.png"> TV MUNDIAL
 </a>
 
-<a class="app-btn" tabindex="0"
-href="https://supervectar-coder.github.io/RADIOSMUNDIALES/">
-<img class="icon" loading="lazy"
-src="https://i.ibb.co/nMNHFkyL/mundial.png">
-RADIOS MUNDIALES
+<a class="app-btn" href="https://supervectar-coder.github.io/RADIOSMUNDIALES/">
+<img class="icon" src="https://i.ibb.co/nMNHFkyL/mundial.png"> RADIOS MUNDIALES
 </a>
 
-<a class="app-btn" tabindex="0"
-href="https://supervectar-coder.github.io/PTVGRATIS/">
-<img class="icon" loading="lazy"
-src="https://i.ibb.co/dwKHCcBw/Plataformas-de-streaming-gratis-2.jpg">
-PLATAFORMAS TV GRATIS
+<a class="app-btn" href="https://supervectar-coder.github.io/PTVGRATIS/">
+<img class="icon" src="https://i.ibb.co/dwKHCcBw/Plataformas-de-streaming-gratis-2.jpg"> PLATAFORMAS TV GRATIS
 </a>
 
-<a class="app-btn" tabindex="0"
-href="https://supervectar-coder.github.io/PTVPAGO/">
-<img class="icon" loading="lazy"
-src="https://i.ibb.co/QjXJhPph/PP.jpg">
-PLATAFORMAS TV PAGO
+<a class="app-btn" href="https://supervectar-coder.github.io/PTVPAGO/">
+<img class="icon" src="https://i.ibb.co/QjXJhPph/PP.jpg"> PLATAFORMAS TV PAGO
 </a>
 
-<a class="app-btn" tabindex="0"
-href="https://supervectar-coder.github.io/SUPERACETV/">
-<img class="icon" loading="lazy"
-src="https://i.ibb.co/pjM4jq7C/acestream.png">
-TV ACESTREAM
+<a class="app-btn" href="https://supervectar-coder.github.io/SUPERACETV/">
+<img class="icon" src="https://i.ibb.co/pjM4jq7C/acestream.png"> TV ACESTREAM
 </a>
 
-<a class="app-btn" tabindex="0"
-href="https://supervectar-coder.github.io/LIVETV/">
-<img class="icon" loading="lazy"
-src="https://i.ibb.co/4ZRTJG5m/livetv.png">
-LIVE TV
+<a class="app-btn" href="https://supervectar-coder.github.io/LIVETV/">
+<img class="icon" src="https://i.ibb.co/4ZRTJG5m/livetv.png"> LIVE TV
 </a>
 
-<a class="app-btn" tabindex="0"
-href="https://supervectar-coder.github.io/IPTVW3U/">
-<img class="icon" loading="lazy"
-src="https://i.ibb.co/fYT1y85n/icono-de-l-nea-vectorial-iptv-concepto-caja-v-deo-ip-tv-184397279.jpg">
-LISTAS EXTERNAS IPTV ANDROID & IPHONE W3U
+<a class="app-btn" href="https://supervectar-coder.github.io/IPTVW3U/">
+<img class="icon" src="https://i.ibb.co/fYT1y85n/icono-de-l-nea-vectorial-iptv-concepto-caja-v-deo-ip-tv-184397279.jpg"> LISTAS EXTERNAS IPTV ANDROID & IPHONE W3U
 </a>
 
-<a class="app-btn" tabindex="0"
-href="https://supervectar-coder.github.io/IPTVM3U/">
-<img class="icon" loading="lazy"
-src="https://i.ibb.co/fYT1y85n/icono-de-l-nea-vectorial-iptv-concepto-caja-v-deo-ip-tv-184397279.jpg">
-LISTAS EXTERNAS IPTV WINDOWS M3U
+<a class="app-btn" href="https://supervectar-coder.github.io/IPTVM3U/">
+<img class="icon" src="https://i.ibb.co/fYT1y85n/icono-de-l-nea-vectorial-iptv-concepto-caja-v-deo-ip-tv-184397279.jpg"> LISTAS EXTERNAS IPTV WINDOWS M3U
 </a>
 
-<a class="app-btn" tabindex="0"
-href="https://supervectar-coder.github.io/APPS/">
-<img class="icon" loading="lazy"
-src="https://i.ibb.co/RkppmJhd/descargas-lo.png">
-APLICACIONES
+<a class="app-btn" href="https://supervectar-coder.github.io/APPS/">
+<img class="icon" src="https://i.ibb.co/RkppmJhd/descargas-lo.png"> APLICACIONES
 </a>
 
 </div>
-
 </div>
 
 <script>
+function detectDevice() {
+    const ua = navigator.userAgent.toLowerCase();
 
-function detectDevice(){
-
-    const ua=navigator.userAgent.toLowerCase();
-
-    if(
-        /smart-tv|smarttv|appletv|googletv|hbbtv|netcast|viera|tizen|webos|android tv/.test(ua)
-    ){
-
+    if (/tv|smart|tizen|webos|android tv/.test(ua)) {
         document.body.classList.add("tv-ui");
-
-    }else if(
-        /mobile|android|iphone/.test(ua)
-    ){
-
+    } else if (/mobile|android|iphone/.test(ua)) {
         document.body.classList.add("mobile-ui");
-
-    }else{
-
+    } else {
         document.body.classList.add("pc-ui");
     }
 }
-
 detectDevice();
-
 </script>
 
 </body>
